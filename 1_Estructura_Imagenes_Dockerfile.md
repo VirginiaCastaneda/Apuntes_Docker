@@ -13,13 +13,13 @@
 
 - EXPOSE 8000 ---> siempre definir los puertos, el contenedor va a usar el puerto 8000
 
-- # Keeps Python from generating .pyc files in the container
+-  Keeps Python from generating .pyc files in the container
 - ENV PYTHONDONTWRITEBYTECODE 1 ----> defiene variable de entorno que utiliza python
 
-- # Turns off buffering for easier container logging
+-  Turns off buffering for easier container logging
 - ENV PYTHONUNBUFFERED 1 ---> otra varible de entorno
 
-- # Switching to a non-root user, please refer to https://aka.ms/vscode-docker-python-user-rights
+-  Switching to a non-root user, please refer to https://aka.ms/vscode-docker-python-user-rights
 - RUN **groupadd** --**gid** 1000 appuser(name) \    ----> ejecuta el docker 
 -     && **useradd** --uid 1000 --gid 1000 --shell /bin/bash --create-home appuser
 
