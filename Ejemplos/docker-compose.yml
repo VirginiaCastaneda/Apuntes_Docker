@@ -1,0 +1,32 @@
+version: '3.4'
+
+services: 
+    web:
+        image: virginiacp11/python-16gen:1.0.0
+        ports: 
+            - 8000:8000
+            - 8080:8080
+        tty: true
+        stdin_open: true
+        volumes: 
+            - c:/Users/virginia/Documents/Hackademy/Contenedores/HolaMundo:/home/appuser/holamundo
+            - pydata:/home/appuser/pydata
+
+    db:
+        image: postgres:12.4
+        ports: 
+            - 5432:5432
+        restart: unless-stopped
+        environment:
+            - POSTGRES_PASSWORD=p4ssw0rd
+            - POSTGRES_USER=adminb
+            - PGDATA=/var/lib/postgressql/data/pgdata
+        volumes: 
+            - pgdata:/var/lib/postgressql/data/pgdata
+            
+            
+volumes:
+    pydata:
+    pgdata:
+
+
